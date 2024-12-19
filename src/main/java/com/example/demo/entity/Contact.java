@@ -1,28 +1,30 @@
 package com.example.demo.entity;
 
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDateTime;
+
+@Document(collection = "contacts")
 public class Contact {
-    private int id;
+    @Id
+    private ObjectId id;
     private String name;
     private String phone;
     private String email;
+    private LocalDateTime date;
 
 
-//    public Contact() {
-//    }
-
-    public Contact(int id, String name, String phone, String email) {
-        this.id = id;
-        this.name = name;
-        this.phone = phone;
-        this.email = email;
+    public Contact() {
     }
 
 
-    public int getId() {
+    public ObjectId getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
@@ -48,5 +50,13 @@ public class Contact {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public LocalDateTime getDate() {
+        return this.date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
     }
 }
