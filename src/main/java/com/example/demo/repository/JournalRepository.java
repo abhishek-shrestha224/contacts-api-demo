@@ -1,10 +1,10 @@
 package com.example.demo.repository;
 
-import com.example.demo.entity.Contact;
+import com.example.demo.entity.Journal;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface ContactRepository extends MongoRepository<Contact, ObjectId> {
+public interface JournalRepository extends MongoRepository<Journal, ObjectId> {
 }
 
 // controller --> service --> repository
