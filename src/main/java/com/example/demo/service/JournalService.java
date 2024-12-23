@@ -30,7 +30,7 @@ public class JournalService {
         userFind.getJournalEntries().add(savedJournal);
         userService.saveUser(userFind);
     }
-    
+
 
     public List<Journal> getUserJournals(String userName) {
         User user = userService.findByUserName(userName);
@@ -41,7 +41,10 @@ public class JournalService {
         return journalRepository.findById(id);
     }
 
-    public void deleteJournalById(ObjectId id) {
+    public void deleteJournalById(ObjectId id, String userName) {
+        User userFind = userService.findByUserName(userName);
+        userFind.getJournalEntries().removeIf(journal -> journal.getId().equals(id));
+        userService.saveUser(userFind);
         journalRepository.deleteById(id);
     }
 

@@ -40,9 +40,9 @@ public class JournalController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @DeleteMapping("/{id}")
-    public boolean deleteJournalById(@PathVariable("id") ObjectId id) {
-        journalService.deleteJournalById(id);
+    @DeleteMapping("{userName}/{id}")
+    public boolean deleteJournalById(@PathVariable("id") ObjectId id, @PathVariable("userName") String userName) {
+        journalService.deleteJournalById(id, userName);
         return true;
     }
 
