@@ -2,7 +2,6 @@ package com.example.demo.service;
 
 import com.example.demo.entity.User;
 import com.example.demo.repository.UserRepository;
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,12 +23,7 @@ public class UserService {
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
-
-
-    public void deleteUserById(ObjectId id) {
-        userRepository.deleteById(id);
-    }
-
+    
     public User findByUserName(String userName) {
         return userRepository.findByUserName(userName);
 

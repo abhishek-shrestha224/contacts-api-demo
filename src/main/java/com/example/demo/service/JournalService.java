@@ -30,10 +30,7 @@ public class JournalService {
         userFind.getJournalEntries().add(savedJournal);
         userService.saveUser(userFind);
     }
-
-    public List<Journal> getAllJournals() {
-        return journalRepository.findAll();
-    }
+    
 
     public List<Journal> getUserJournals(String userName) {
         User user = userService.findByUserName(userName);
